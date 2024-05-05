@@ -18,8 +18,4 @@ class GenreCine {
         return $this;
     }
 
-    public function getInfos(){
-        return $this->genreCine;
-    }
-
 }
