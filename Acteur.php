@@ -53,19 +53,29 @@ class Acteur {
 
     public function getListeFilm(): array
     {
-        return $this->listeFilms;
+        return $this->listeFilm;
     }
 
-    public function setListeFilm($listeFilms)
+    public function setListeFilm($listeFilm)
     {
-        $this->listeFilms = $listeFilms;
+        $this->listeFilm = $listeFilm;
         return $this;
     }
 
+
+    public function __toString()
+    {
+        return $this->prenom . " ". $this->nom;
+    }
+
+    public function ajouterFilmAActeur(Casting $listeFilm) {
+        $this->listeFilm[] = $listeFilm;
+    }
+
     public function afficherFilms() {
-        $result = "L'acteur ".$this." a joué dans les films : <br>";
-        foreach ($this->listeFilms as $film) {
-            $result .= "- ".$film->getFilm()."<br>";
+        $result = "<h2>Filmographie de $this</h2>";
+        foreach ($this->listeFilm as $film) {
+            $result .= $film->getFilm()."<br>";
         }
         return $result;
     }

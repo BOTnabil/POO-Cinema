@@ -9,17 +9,20 @@ class Casting {
         $this->film = $film;
         $this->acteur = $acteur;
         $this->role = $role;
-        $role->ajouterActeurARole($this);
+        $film->ajouterCastingAFilm($this);
         $acteur->ajouterFilmAActeur($this);
-        $film->ajouterCastingAFilm($this); 
+        $role->ajouterActeurARole($this);
+    }
+
+    public function __toString() {
+        return $this->film;
     }
 
     public function getRole(): Role
     {
         return $this->role;
     }
-
-    public function setRole(Role $role)
+    public function setRole($role)
     {
         $this->role = $role;
         return $this;
@@ -29,8 +32,7 @@ class Casting {
     {
         return $this->acteur;
     }
-
-    public function setActeur(Acteur $acteur)
+    public function setActeur($acteur)
     {
         $this->acteur = $acteur;
         return $this;
@@ -40,15 +42,10 @@ class Casting {
     {
         return $this->film;
     }
-
-    public function setFilm(Film $film)
+    public function setFilm($film)
     {
         $this->film = $film;
         return $this;
-    }
-
-    public function __toString() {
-        return $this->film;
     }
 
 }

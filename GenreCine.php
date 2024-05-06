@@ -21,7 +21,7 @@ class GenreCine {
     }
 
     public function __toString() {
-        return $this->getGenreCine() ."<br>";
+        return $this->getGenreCine();
     }
 
     public function ajouterGenre(Film $film) {
@@ -29,9 +29,9 @@ class GenreCine {
     }
 
     public function afficherFilms() {
-        $result = "<h2>Films du genre $this<br></h2>";
+        $result = "<h2>Films du genre ".$this." (".count($this->filmsGenres).")</h2>";
         foreach ($this->filmsGenres as $film) {
-            $result .= $film ;
+            $result .= "$film<br>" ;
         }
         return $result;
     }
