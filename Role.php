@@ -13,6 +13,7 @@ class Role {
 
     public function setRole($role) {
         $this->role = $role;
+        return $this;
     }
 }
 //ajouter casting array
